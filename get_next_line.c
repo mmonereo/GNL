@@ -6,13 +6,13 @@
 /*   By: mmonereo <mmonereo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 18:47:46 by mmonereo          #+#    #+#             */
-/*   Updated: 2020/11/28 18:48:02 by mmonereo         ###   ########.fr       */
+/*   Updated: 2020/11/28 18:51:22 by mmonereo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	has_nl(char *str)
+int		has_nl(char *str)
 {
 	int	i;
 
@@ -84,14 +84,14 @@ int		get_next_line(const int fd, char **line)
 	int			reader;
 	char		buf[BUFFER_SIZE + 1];
 	char static	*text;
-	
+
 	reader = 1;
 	if (fd < 0 || !line || BUFFER_SIZE < 1)
 		return (-1);
 	while (has_nl(text) == 0 && reader != 0)
 	{
 		if ((reader = read(fd, buf, BUFFER_SIZE)) == -1)
-			return(-1);
+			return (-1);
 		buf[reader] = '\0';
 		text = ft_strjoin(text, buf);
 	}
