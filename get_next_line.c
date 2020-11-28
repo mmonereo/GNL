@@ -6,7 +6,7 @@
 /*   By: mmonereo <mmonereo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 18:47:46 by mmonereo          #+#    #+#             */
-/*   Updated: 2020/11/28 18:51:22 by mmonereo         ###   ########.fr       */
+/*   Updated: 2020/11/28 19:18:40 by mmonereo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	*get_remain(char *str)
 int		get_next_line(const int fd, char **line)
 {
 	int			reader;
-	char		buf[BUFFER_SIZE + 1];
+	char		*buf;
 	char static	*text;
 
 	reader = 1;
@@ -90,10 +90,13 @@ int		get_next_line(const int fd, char **line)
 		return (-1);
 	while (has_nl(text) == 0 && reader != 0)
 	{
+		if (!(buf = malloc(sizeof(char) * BUFFER_SIZE + 1)))
+		return (-1);
 		if ((reader = read(fd, buf, BUFFER_SIZE)) == -1)
 			return (-1);
 		buf[reader] = '\0';
 		text = ft_strjoin(text, buf);
+		free(buf);
 	}
 	*line = get_output(text);
 	text = get_remain(text);

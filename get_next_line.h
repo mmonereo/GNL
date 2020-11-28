@@ -6,7 +6,7 @@
 /*   By: mmonereo <mmonereo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 10:35:00 by mmonereo          #+#    #+#             */
-/*   Updated: 2020/11/28 18:44:33 by mmonereo         ###   ########.fr       */
+/*   Updated: 2020/11/28 19:01:45 by mmonereo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
-# define BUFFER_SIZE	78
 
 int		get_next_line(const int fd, char **line);
 int		ft_strlen(const char *str);
