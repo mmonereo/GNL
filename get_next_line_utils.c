@@ -6,7 +6,7 @@
 /*   By: mmonereo <mmonereo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:24:29 by mmonereo          #+#    #+#             */
-/*   Updated: 2020/11/27 11:04:11 by mmonereo         ###   ########.fr       */
+/*   Updated: 2020/11/28 18:43:55 by mmonereo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t size)
 	return ((unsigned char *)dst);
 }
 
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char			*joined;
@@ -55,4 +54,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	free((void*)s1);
 	return (joined);
 }
-
