@@ -6,7 +6,7 @@
 /*   By: mmonereo <mmonereo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 11:19:44 by mmonereo          #+#    #+#             */
-/*   Updated: 2020/11/28 19:00:45 by mmonereo         ###   ########.fr       */
+/*   Updated: 2020/11/29 19:34:08 by mmonereo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,32 +19,44 @@ int main (void)
 {
 	int fd;
 	char *line;
-	int ret;
-	// int conti = 0;
-
-	ret = 1;
-	fd = open("azteca.txt", O_RDONLY);
-	printf("fd:%d\n", fd);
+	int ret = 1;
+	int openmode = 1;
 	
-	while (ret > 0)
+	if (openmode == 1)
 	{
-		ret = get_next_line(fd, &line);
-		printf("%s\n\n", line);
-		// printf("retorno %d \n", ret);
-		free(line);
-	}
+		fd = open("azteca.txt", O_RDONLY);
+		printf("fd:%d\n", fd);
 	
-		// ret = get_next_line(fd, &line);
-		// printf("%s\n", line);
-		// ret = get_next_line(fd, &line);
-		// printf("%s\n", line);
+		while (ret > 0)
+		{
+			ret = get_next_line(fd, &line);
+			printf("%s\n\n", line);
+			// printf("retorno %d \n", ret);
+			free(line);
+		}
+		if (close(fd) == 0)
+		{
+			printf("fue cerrado\n");
+		}
+	
+	}
+	else if (!openmode)
+	{
+		write(0, "macho\nque pasa con mi bocata\nde tortilla\n", 42 );
+		
+		while (ret > 0)
+		{
+			ret = get_next_line(0, &line);
+			printf("%s\n\n", line);
+			// printf("retorno %d \n", ret);
+			// free(line);
+		}
+	}
+
 
 	
 	
-	if (close(fd) == 0)
-	{
-		printf("fue cerrado\n");
-	}
-	// system("leaks a.out");
+	
+	system("leaks a.out");
 	
 }
