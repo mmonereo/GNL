@@ -6,7 +6,7 @@
 /*   By: mmonereo <mmonereo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 18:47:46 by mmonereo          #+#    #+#             */
-/*   Updated: 2020/11/28 19:21:12 by mmonereo         ###   ########.fr       */
+/*   Updated: 2020/12/04 15:31:07 by mmonereo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,10 @@ int		get_next_line(const int fd, char **line)
 		if (!(buf = malloc(sizeof(char) * BUFFER_SIZE + 1)))
 			return (-1);
 		if ((reader = read(fd, buf, BUFFER_SIZE)) == -1)
-			return (-1);
+			{
+				free(buf);
+				return(-1);
+			}
 		buf[reader] = '\0';
 		text = ft_strjoin(text, buf);
 		free(buf);
